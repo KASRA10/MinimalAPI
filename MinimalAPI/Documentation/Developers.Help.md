@@ -114,22 +114,32 @@ Why Use DisableAntiforgery()?
 
 ## From Body for POST Json ==> PayLoad
 
+0- Create A Class Compatible | According to our data (Here Login with two fields):
+
+```text
+public class Login
+   {
+       public required string Login_UserName { get; set; }
+       public required string Login_PassWord { get; set; }
+   }
+```
+
 1- Create a function class and put a function to return TypedResult.
 
 ```text
 public static IResult HandleLogin([Microsoft.AspNetCore.Mvc.FromBody] Login data)
-        {
-            if (data.Login_UserName == "admin" && data.Login_PassWord == "admin")
-            {
-                return TypedResults.Ok(
-                    $"User with this UserName: {data.Login_UserName} and this Pass: \"{data.Login_PassWord}\" has Logged in on {DateTime.Now}"
-                );
-            }
-            else
-            {
-                return TypedResults.BadRequest("Just Admin is Accessible! 😁");
-            }
-        }
+       {
+           if (data.Login_UserName == "admin" && data.Login_PassWord == "admin")
+           {
+               return TypedResults.Ok(
+                   $"User with this UserName: {data.Login_UserName} and this Pass: \"{data.Login_PassWord}\" has Logged in on {DateTime.Now}"
+               );
+           }
+           else
+           {
+               return TypedResults.BadRequest("Just Admin is Accessible! 😁");
+           }
+       }
 ```
 
 2- Instead using a Anonymous Function, used named function:
@@ -161,3 +171,103 @@ OutPut:
 OutPut:
 (400 Bad Request)
 `"Just Admin is Accessible! 😁"`
+
+## Middleware
+
+middleware is a software that's assembled into an app pipeline to handle request s and responses. Each Middleware:
+
+- Chooses Whether to pass the request to the next component in the pipeline.
+  - Can perform work before and after the next component in the pipeline.
+  - Convention-based
+  - Inline
+
+Some process, functions, features on request and response until reach to service sytem or user and the end.
+
+```text
+ //? preLogin
+    await next(); //? PipLine
+//? PostLogin
+```
+
+## Kestrel
+
+Application Server. ASP.net is Executes on Kestrel or by Kestrel Something Like Operation System.
+
+## APS.Net Core Pipeline
+
+Route of passing request and response is pipeline. Next(); ==>going to the next step on pipe line.
+
+**Chain Line Of Responsibility Pattern:**
+
+Is in the software.
+
+**POINT:**
+
+**_Global Exception Handling_** ==> all code in a try and catch to see it even works or not. ==> prevent crashing, freezing, putting out of software. If programmer forgot to use local Exception handling, this handle generally exception on all code and everywhere.
+
+**Context** ==> anything is happening on this context and can be a http or other. The type of it as well.
+
+**Next** ==> create pipeline and go to next step | middleware | process | function and…
+
+**POINT:** Local Exception Handling is try and catch we always use.
+
+**POINT:** this app.use or global exception is a middleware. It is a Middleware Inline.
+
+**POINT:** Each Endpoint is branch middleware
+
+**POINT:** Each middleware is a separate threads and distinct process.
+
+`Middleware Login => Login topic`
+
+Generally if write logger, it logs everywhere but,
+Is better before exception handling | global exception handling.
+
+**POINT:** the log of error is distinct as well.
+
+**POINT:** Sequence and order of registration of Middleware's are important.
+
+## Logging (Log Data)
+
+Logging (Log Data [IP, Browser,USer, RateDate, ResDate, Operation, ...]) ==> is a Middleware
+
+EX: **Default logger on Console**
+
+```text
+//? Logging MiddleWare
+//? Logging (Log Data [IP, Browser,USer, RateDate, ResDate, Operation, ...]) ==> is a Middleware
+//* EX: Default logger on Console
+// app.Logger.LogInformation("Before");
+// app.Logger.LogInformation("After");
+// app.Logger.LogError(ex.message);
+app.Use(
+    async (context, next) =>
+    {
+        app.Logger.LogInformation("Before");
+        await next(); //? PipLine
+        app.Logger.LogInformation("After");
+    }
+);
+```
+
+**POINT:**
+
+```text
+//? Branch Middleware === Branch Endpoint
+app.Use(
+    async (context, next) =>
+    {
+        if (context.Request.Method == "GET" && context.Request.Path == "/branch")
+        {
+            await context.Response.WriteAsync("Custom Content");
+        }
+        else
+        {
+            await next(context); //? PipLine
+        }
+    }
+);
+```
+
+Context can mean HTTP Request and Response.
+
+With POST Method ==> **Status: 404 Not Found**
