@@ -73,3 +73,91 @@ EX:
 $"Parent: {brand}\nComment on: {point}\nstar value: \"{alphabet}\"");`
 
 <http://localhost:5020/api/Nikee?point=Perfect&alphabet=A>
+
+## Post
+
+**Post** ==> Send Data
+
+**Classic HTML Form** ==> FromForm
+
+`app.MapPost(
+"/api/registration",
+(
+[FromForm] string name,
+[FromForm] string surname,
+[FromForm] string email,
+[FromForm] string pass
+) =>
+$"New User:\nName: {name}\nSurName: {surname}\nEmail: {email}\nPassWord: {pass}\nHas Been Registered Successfully"
+)
+.DisableAntiforgery();`
+
+OutPut:
+
+````text
+New User:
+Name: Kasra
+SurName: Hosseini
+Email: Example@gmail.com
+PassWord: 123456
+Has Been Registered Successfully```
+````
+
+## DisableAntiforgery()
+
+**DisableAntiforgery()** is a method in ASP.NET Core that disables anti-forgery token validation for a specific endpoint. Normally, ASP.NET Core uses anti-forgery tokens to prevent Cross-Site Request Forgery (CSRF) attacks, which occur when a malicious site tricks a user into submitting unintended requests to a trusted site.
+Why Use DisableAntiforgery()?
+
+- **Development Convenience**: If you're testing APIs locally and don't want to deal with CSRF protection, disabling it can make debugging easier.
+- **Non-Browser Clients**: If your API is consumed by non-browser clients (like mobile apps or IoT devices), CSRF protection might not be necessary.
+- **Performance Optimization**: In some cases, disabling anti-forgery checks can slightly improve performance, though security should always be the priority.
+
+## From Body for POST Json ==> PayLoad
+
+1- Create a function class and put a function to return TypedResult.
+
+```text
+public static IResult HandleLogin([Microsoft.AspNetCore.Mvc.FromBody] Login data)
+        {
+            if (data.Login_UserName == "admin" && data.Login_PassWord == "admin")
+            {
+                return TypedResults.Ok(
+                    $"User with this UserName: {data.Login_UserName} and this Pass: \"{data.Login_PassWord}\" has Logged in on {DateTime.Now}"
+                );
+            }
+            else
+            {
+                return TypedResults.BadRequest("Just Admin is Accessible! 😁");
+            }
+        }
+```
+
+2- Instead using a Anonymous Function, used named function:
+
+`app.MapPost("/api/login", Result.HandleLogin).DisableAntiforgery();`
+
+3- EX:
+
+**EndPoint:** <http://localhost:5020/api/login>
+PayLoad (JSON):
+
+```text
+{
+  "Login_UserName": "admin",
+  "Login_PassWord": "admin"
+}
+```
+
+OutPut:
+`"User with this UserName: admin and this Pass: \"admin\" has Logged in on 06/02/2025 02:14:33"`
+
+```text
+{
+  "Login_UserName": "test",
+  "Login_PassWord": "admin"
+}
+```
+
+OutPut:
+(400 Bad Request)
+`"Just Admin is Accessible! 😁"`

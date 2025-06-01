@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using MinimalAPI.Functions;
+using MinimalAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -26,7 +28,21 @@ app.MapGet(
         $"Parent: {brand}\nComment on: {point}\nstar value: \"{alphabet}\""
 );
 
-//? Post ==> Send Data
+//* Post ==> Send Data
 //? Classic HTML Form ==> FromForm
+app.MapPost(
+        "/api/registration",
+        (
+            [FromForm] string name,
+            [FromForm] string surname,
+            [FromForm] string email,
+            [FromForm] string pass
+        ) =>
+            $"New User:\nName: {name}\nSurName: {surname}\nEmail: {email}\nPassWord: {pass}\nHas Been Registered Successfully"
+    )
+    .DisableAntiforgery();
+
+//? From Body for POST Json ==> PayLoad
+app.MapPost("/api/login", Result.HandleLogin).DisableAntiforgery();
 
 app.Run();
