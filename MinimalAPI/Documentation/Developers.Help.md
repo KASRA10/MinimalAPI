@@ -271,3 +271,42 @@ app.Use(
 Context can mean HTTP Request and Response.
 
 With POST Method ==> **Status: 404 Not Found**
+
+## ConventionBased MiddleWare
+
+**PONT:**
+They should register.
+
+1- Create in Distinctively:
+
+```text
+ //? Convention-Based
+    public class ConventionBased
+    {
+        private RequestDelegate _next;
+
+        public ConventionBased(RequestDelegate next)
+        {
+            _next = next;
+        }
+
+        public async Task InvokeAsync(HttpContext context)
+        {
+            if (context.Request.Path == "/middleware")
+            {
+                await context.Response.WriteAsync("MiddleWare . . .");
+            }
+            else
+            {
+                await _next(context);
+            }
+        }
+    }
+```
+
+2- Register On Program
+
+```text
+//? Registration of a COnventionBased MiddleWare
+app.UseMiddleware<ConventionBased>();
+```

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MinimalAPI.Functions;
+using MinimalAPI.Middlewares;
 using MinimalAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -55,6 +56,9 @@ app.Use(
         }
     }
 );
+
+//? Registration of a COnventionBased MiddleWare
+app.UseMiddleware<ConventionBased>();
 
 // Default (Home) EndPoint
 app.MapGet("/", () => "Application Name: KasraK10 Minimal API - Basic\nList Of EndPoints:");
