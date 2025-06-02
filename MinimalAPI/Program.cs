@@ -23,6 +23,10 @@ app.Use(
     }
 );
 
+//? Registration Of AuthenticationHEaderMiddleWare
+//* http://localhost:5020?User-App-Key=MyApp10X&User-Auth-Token=1111-xxxx-yyyy-0000
+app.UseMiddleware<AuthenticationHeaderMiddleWare>();
+
 //? Respiration of BrowserCheckMiddleWare
 app.UseMiddleware<BrowserCheckMiddleware>();
 

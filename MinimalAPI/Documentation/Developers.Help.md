@@ -343,3 +343,46 @@ public class BrowserCheckMiddleware
 
 `//? Respiration of BrowserCheckMiddleWare
 app.UseMiddleware<BrowserCheckMiddleware>();`
+
+# Athentication Header
+
+1- Define MiddleWare
+
+```text
+ public class AuthenticationHeaderMiddleWare
+    {
+        public async Task InvokeAsync(HttpContext context)
+        {
+            bool ValidAppKey = context
+                .Request.Headers["User-App-Key"]
+                .Any(static hv => hv.Contains("MyApp10X"));
+
+            bool ValidAuthToken = context
+                .Request.Headers["User-Auth-Token"]
+                .Any(static hv => hv.Contains("1111-xxxx-yyyy-0000"));
+
+            if (ValidAppKey && ValidAuthToken)
+            {
+                await context.Response.WriteAsync("WelCome Back");
+            }
+            else
+            {
+                await context.Response.WriteAsync("Authentication Failed, CAll Admin!");
+            }
+        }
+    }
+```
+
+2- Resigner it
+`//? Registration Of AuthenticationHEaderMiddleWare
+app.UseMiddleware<AuthenticationHeaderMiddleWare>();`
+
+**POINT:**It's PLase Is At First After Logger, because it is better if you do not authorize data, do not be able to connect to any endpoint.
+
+Header on Thunder or Postman:
+URL Example: <http://localhost:5020?User-App-Key=MyApp10X&User-Auth-Token=1111-xxxx-yyyy-0000>
+
+```text
+User-App-Key    MyApp10X
+User-Auth-Token    1111-xxxx-yyyy-0000
+```
