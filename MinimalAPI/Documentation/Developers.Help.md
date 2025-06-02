@@ -310,3 +310,36 @@ They should register.
 //? Registration of a COnventionBased MiddleWare
 app.UseMiddleware<ConventionBased>();
 ```
+
+## MiddleWAre To Check Browser
+
+```text
+public class BrowserCheckMiddleware
+    {
+        private readonly RequestDelegate _next;
+
+        public BrowserCheckMiddleware(RequestDelegate next)
+        {
+            _next = next;
+        }
+
+        public async Task InvokeAsync(HttpContext context)
+        {
+            bool InvalidBrowser = context
+                .Request.Headers["User-Agent"]
+                .Any(static hv => hv.Contains("Edg"));
+
+            if (InvalidBrowser)
+            {
+                await context.Response.WriteAsync("Can Not Support Your Browser!");
+            }
+            else
+            {
+                await _next(context);
+            }
+        }
+    }
+```
+
+`//? Respiration of BrowserCheckMiddleWare
+app.UseMiddleware<BrowserCheckMiddleware>();`

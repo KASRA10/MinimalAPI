@@ -6,6 +6,8 @@ using MinimalAPI.Models;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
+#region MiddleWares
+
 //? Logging MiddleWare
 //? Logging (Log Data [IP, Browser,USer, RateDate, ResDate, Operation, ...]) ==> is a Middleware
 //* EX: Default logger on Console
@@ -20,6 +22,9 @@ app.Use(
         app.Logger.LogInformation("After");
     }
 );
+
+//? Respiration of BrowserCheckMiddleWare
+app.UseMiddleware<BrowserCheckMiddleware>();
 
 //* MiddleWare
 //? Global Exception Handling (inline MiddleWare)
@@ -57,8 +62,10 @@ app.Use(
     }
 );
 
-//? Registration of a COnventionBased MiddleWare
+//? Registration of a ConventionBased MiddleWare
 app.UseMiddleware<ConventionBased>();
+
+#endregion
 
 // Default (Home) EndPoint
 app.MapGet("/", () => "Application Name: KasraK10 Minimal API - Basic\nList Of EndPoints:");
