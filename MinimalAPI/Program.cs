@@ -72,7 +72,11 @@ app.UseMiddleware<ConventionBased>();
 #endregion
 
 // Default (Home) EndPoint
-app.MapGet("/", () => "Application Name: KasraK10 Minimal API - Basic\nList Of EndPoints:");
+app.MapGet(
+    "/",
+    () =>
+        "Application Name: KasraK10 Minimal API - Basic\nList Of EndPoints:\n/error/{number}\n/browser\n/api/{companyName}/priority\n/api/{brand}\n/api/registration\n/api/registration\n/api/login\n/api/profiles/{userName}\n/api/profiles/{userName}\n/api/post/{postId}"
+);
 
 //! UnHandled Error Message ==> Using Global Exception Error Message
 app.MapGet("/error/{number}", ([FromRoute] int number) => $"Your Id Is: {number}");
