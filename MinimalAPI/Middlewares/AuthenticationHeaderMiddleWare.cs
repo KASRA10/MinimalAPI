@@ -27,6 +27,16 @@ namespace MinimalAPI.Middlewares
             {
                 await context.Response.WriteAsync("Authentication Failed, CAll Admin!");
             }
+            // To Go Next on PipLine
+             // if (ValidAppKey && ValidAuthKey)
+            // {
+            //     await _next(context);
+            // }
+            // else
+            // {
+            //     context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            //     await context.Response.WriteAsync("Authentication Failed!");
+            // }
         }
     }
 }
