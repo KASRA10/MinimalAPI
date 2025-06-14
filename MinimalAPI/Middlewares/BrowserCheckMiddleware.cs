@@ -17,7 +17,9 @@ namespace MinimalAPI.Middlewares
 
             if (InvalidBrowser)
             {
-                await context.Response.WriteAsync("Can Not Support Your Browser!");
+                // await context.Response.WriteAsync("Can Not Support Your Browser!");
+                context.Response.StatusCode = StatusCodes.Status403Forbidden;
+                await context.Response.WriteAsync("This Browser is Forbidden");
             }
             else
             {
