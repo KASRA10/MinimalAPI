@@ -14,8 +14,9 @@ namespace MinimalAPI.Middlewares
             bool InvalidBrowser = context
                 .Request.Headers["User-Agent"]
                 .Any(static hv => hv.Contains("Firefox"));
-            // string[] browsers = { "Chrome", "Firefox", "Safari" };
-            // bool hasFirefox = browsers.Any(b => b.Contains("Firefox")); // Returns true
+                // How .Any() Works: Example:
+                // string[] browsers = { "Chrome", "Firefox", "Safari" };
+                // bool hasFirefox = browsers.Any(b => b.Contains("Firefox")); // Returns true
 
             if (InvalidBrowser)
             {
