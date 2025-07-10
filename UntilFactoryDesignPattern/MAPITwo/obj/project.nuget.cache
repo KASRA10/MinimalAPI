@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v8lYfM56bJc=",
+  "dgSpecHash": "h7Fbrr5AENo=",
   "success": true,
-  "projectFilePath": "E:\\WORKSPACE\\TTT-CSharp\\MinimalTwo\\MAPITwo\\MAPITwo.csproj",
+  "projectFilePath": "E:\\WORKSPACE\\Education\\Blazor\\MinimalAPI\\UntilFactoryDesignPattern\\MAPITwo\\MAPITwo.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

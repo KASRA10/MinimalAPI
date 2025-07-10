@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MAPITwo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+209e7d9ad64512b0b14efe28e56dc1d5a33d43ad")]
 [assembly: System.Reflection.AssemblyProductAttribute("MAPITwo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MAPITwo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\WORKSPACE\\TTT-CSharp\\MinimalTwo\\MAPITwo\\MAPITwo.csproj": {}
+    "E:\\WORKSPACE\\Education\\Blazor\\MinimalAPI\\UntilFactoryDesignPattern\\MAPITwo\\MAPITwo.csproj": {}
   },
   "projects": {
-    "E:\\WORKSPACE\\TTT-CSharp\\MinimalTwo\\MAPITwo\\MAPITwo.csproj": {
+    "E:\\WORKSPACE\\Education\\Blazor\\MinimalAPI\\UntilFactoryDesignPattern\\MAPITwo\\MAPITwo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\WORKSPACE\\TTT-CSharp\\MinimalTwo\\MAPITwo\\MAPITwo.csproj",
+        "projectUniqueName": "E:\\WORKSPACE\\Education\\Blazor\\MinimalAPI\\UntilFactoryDesignPattern\\MAPITwo\\MAPITwo.csproj",
         "projectName": "MAPITwo",
-        "projectPath": "E:\\WORKSPACE\\TTT-CSharp\\MinimalTwo\\MAPITwo\\MAPITwo.csproj",
+        "projectPath": "E:\\WORKSPACE\\Education\\Blazor\\MinimalAPI\\UntilFactoryDesignPattern\\MAPITwo\\MAPITwo.csproj",
         "packagesPath": "C:\\Users\\Kasra10\\.nuget\\packages\\",
-        "outputPath": "E:\\WORKSPACE\\TTT-CSharp\\MinimalTwo\\MAPITwo\\obj\\",
+        "outputPath": "E:\\WORKSPACE\\Education\\Blazor\\MinimalAPI\\UntilFactoryDesignPattern\\MAPITwo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
