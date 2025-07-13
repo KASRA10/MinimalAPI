@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\WORKSPACE\\TTT-CSharp\\MyExtensions\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1BBD7DB4-57A9-30F0-3750-8661C282D207}|MAPITwo.csproj|e:\\workspace\\ttt-csharp\\myextensions\\services\\browsercheckservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BBD7DB4-57A9-30F0-3750-8661C282D207}|MAPITwo.csproj|solutionrelative:services\\browsercheckservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BrowserCheckService.cs",
+              "DocumentMoniker": "E:\\WORKSPACE\\TTT-CSharp\\MyExtensions\\Services\\BrowserCheckService.cs",
+              "RelativeDocumentMoniker": "Services\\BrowserCheckService.cs",
+              "ToolTip": "E:\\WORKSPACE\\TTT-CSharp\\MyExtensions\\Services\\BrowserCheckService.cs",
+              "RelativeToolTip": "Services\\BrowserCheckService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T17:11:01.934Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

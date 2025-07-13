@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "vxQmrLC4lYM=",
+  "success": true,
+  "projectFilePath": "E:\\WORKSPACE\\TTT-CSharp\\MyExtensions\\MAPITwo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kasra10\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.6\\microsoft.aspnetcore.openapi.9.0.6.nupkg.sha512",
+    "C:\\Users\\Kasra10\\.nuget\\packages\\microsoft.extensions.apidescription.server\\8.0.0\\microsoft.extensions.apidescription.server.8.0.0.nupkg.sha512",
+    "C:\\Users\\Kasra10\\.nuget\\packages\\microsoft.openapi\\1.6.23\\microsoft.openapi.1.6.23.nupkg.sha512",
+    "C:\\Users\\Kasra10\\.nuget\\packages\\scalar.aspnetcore\\2.5.3\\scalar.aspnetcore.2.5.3.nupkg.sha512",
+    "C:\\Users\\Kasra10\\.nuget\\packages\\swashbuckle.aspnetcore\\9.0.1\\swashbuckle.aspnetcore.9.0.1.nupkg.sha512",
+    "C:\\Users\\Kasra10\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\9.0.1\\swashbuckle.aspnetcore.swagger.9.0.1.nupkg.sha512",
+    "C:\\Users\\Kasra10\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\9.0.1\\swashbuckle.aspnetcore.swaggergen.9.0.1.nupkg.sha512",
+    "C:\\Users\\Kasra10\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\9.0.1\\swashbuckle.aspnetcore.swaggerui.9.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
